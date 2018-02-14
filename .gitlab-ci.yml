@@ -39,6 +39,7 @@ build job:
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
 
 .job_sshpushtemplate: &sshpush
+  image: docker:git
   before_script:
     - which ssh-agent || (apk add --no-cache --update openssh-client)
     - eval $(ssh-agent -s)
