@@ -8,12 +8,16 @@ variables:
 services:
   - docker:dind
 
+stages:
+  - build-and-deploy
+  - git-push-to-mirror
+
 before_script:
   - docker info
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
 
 build job:
-  stage: build
+  stage: build-and-deploy
   variables:
     DOCKERHUB_REGISTRY: "https://index.docker.io/v1/"
     DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/openssh-client"
@@ -32,7 +36,7 @@ build job:
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
 
-  .job_sshpushtemplate: &sshpush
+.job_sshpushtemplate: &sshpush
   before_script:
     - which ssh-agent || (apk add --no-cache --update openssh-client)
     - eval $(ssh-agent -s)
