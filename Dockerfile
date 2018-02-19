@@ -5,7 +5,8 @@ LABEL maintainer="Anucha Nualsi <ana.cpe9@gmail.com>"
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache --update \
-    "openssh-client=7.5_p1-r8" && \
+    "openssh-client=7.5_p1-r8" \
+    "git=2.15.0-r1" && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/* && \
     rm -rf /var/cache/apk/*
