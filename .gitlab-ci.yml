@@ -24,7 +24,7 @@ build job:
   only:
     - master
   script:
-  - TMPTAG="7.7_p1-r2"
+  - TMPTAG="7.7_p1-r3"
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:latest
