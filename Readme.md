@@ -15,7 +15,7 @@
 ## e2e-testplat alpine packages
 
 - openssh-client=7.7_p1-r3
-- git=2.18.0-r0
+- git=2.18.1-r0
 
 ## Source Repository
 
