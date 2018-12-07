@@ -6,7 +6,7 @@ RUN apk update && \
     apk upgrade && \
     apk add --no-cache --update \
     "openssh-client=7.7_p1-r3" \
-    "git=2.18.0-r0" && \
+    "git=2.18.1-r0" && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/* && \
     rm -rf /var/cache/apk/*
